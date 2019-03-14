@@ -17,7 +17,7 @@
 ' PORTA pin name:	RA1	RA2	RA3
 ' PORTA pin number:	18	1	2
 ' PORTA function:	++	--	reset
-' LED segment:		-	c	d	e	b	a	g	f
+' LED segment:		f	g	a	b	e	d	c	-
 ' PORTB bit:		0	1	2	3	4	5	6	7
 ' PORTB pin name:	RB0	RB1	RB2	RB3	RB4	RB5	RB6	RB7
 ' PORTB pin number:	6	7	8	9	11	12	13	14
@@ -74,7 +74,7 @@ Do While (PORTA.1 == 1)
 	Gosub Updatepins ' Update the display
 	Pause 200 'Hold the current count on the display for 0.2 sec before continuing
 Loop
-Pause ' Pause for 0.01 sec to allow any switch bounce to settle after button release
+Pause 100 ' Pause for 0.01 sec to allow any switch bounce to settle after button release
 
 'Continue to decriment every 0.2 sec while the decriment button is being held down
 Do While (PORTA.2 == 1)
@@ -86,7 +86,7 @@ Do While (PORTA.2 == 1)
 	Gosub Updatepins ' Update the display
 	Pause 200 'Hold the current count on the display for 0.2 sec before continuing
 Loop
-Pause ' Pause for 0.01 sec to allow any switch bounce to settle after button release
+Pause 100 ' Pause for 0.01 sec to allow any switch bounce to settle after button release
 
 'Reset the display to zero if the reset button is pressed
 	If(PORTA.3 = 1) Then
